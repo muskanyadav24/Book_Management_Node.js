@@ -82,6 +82,11 @@ Models manage data
 
 Response rendered back to UI
 
+## 📸 Screenshots
+
+<img width="584" height="337" alt="image" src="https://github.com/user-attachments/assets/d5d7c6eb-ef05-416a-b7da-d5ea3d9dfcb4" />
+
+
 ## 🙏 Special Thanks
 I would like to express my sincere gratitude to my respected sir, **Keyur Gohil Sir**, for his valuable guidance, continuous support, and encouragement throughout the development of this project.
 
