@@ -1,4 +1,5 @@
 const express = require('express');
+const upload = require("../middlewaes/middle");
 const controller = require("../controllers/controller");
 
 const router = express.Router();
