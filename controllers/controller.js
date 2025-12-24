@@ -7,21 +7,22 @@ const showAllBooks = async (req, res) => {
 
 const createBook = async (req, res) => {
     const { id, title, author, year, price } = req.body;
+    const image = req.file ? req.file.filename : null;
 
     if (id) {
-        await Book.findByIdAndUpdate(id, {
-            title,
-            author,
-            year,
-            price
-        });
+        const updateData = { title, author, year, price };
+        if (image) {
+            updateData.image = image;
+        }
+        await Book.findByIdAndUpdate(id, updateData);
     } else {
         await Book.create({
             title,
             author,
             year,
-            price
-        });
+            price,
+            image
+        })
     }
 
     res.redirect("/");
