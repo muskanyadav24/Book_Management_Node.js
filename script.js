@@ -16,9 +16,9 @@ connectDB();
 const bookRouter = require("./routers/bookRouter")
 server.use("/", bookRouter);
 
-server.listen(7000, (err) => {
+server.listen(3000, (err) => {
     if (!err) {
-        console.log("Server is running on http://localhost:7000");
+        console.log("Server is running on http://localhost:3000");
         console.log("Server is successfully started");
     } else {
         console.log("Error...", err);
