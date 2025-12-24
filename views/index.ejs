@@ -23,7 +23,7 @@
                     <%= editBook ? "Edit Book" : "Add New Book" %>
                 </h2>
 
-                <form action="/createBook" method="post">
+                <form action="/createBook" method="post" enctype="multipart/form-data">
 
                     <input type="hidden" name="id" value="<%= editBook ? editBook._id : '' %>">
 
@@ -51,6 +51,14 @@
                             value="<%= editBook ? editBook.price : '' %>" placeholder="Price" required>
                     </div>
 
+                    <div class="mb-3">
+                        <% if (editBook && editBook.image) { %>
+                            <img src="/uploads/<%= editBook.image %>" width="80" class="rounded">
+                        <% } %>
+
+                        <input type="file" name="image" class="form-control" value="<%= editBook ? editBook.image : '' %>">
+                    </div>
+
                     <div class="text-center">
                         <button type="submit" class="btn <%= editBook ? 'btn-primary' : 'btn-success' %> px-4">
                             <%= editBook ? "Update Book" : "Add Book" %>
@@ -71,6 +79,7 @@
                             <th>Author</th>
                             <th>Year</th>
                             <th>Price</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -87,6 +96,11 @@
                                     <%= book.year %>
                                 </td>
                                 <td>₹ <%= book.price %>
+                                </td>
+                                <td>
+                                    <% if (book.image) { %>
+                                        <img src="/uploads/<%= book.image %>" width="50">
+                                    <% } %>
                                 </td>
                                 <td>
                                     <a href="/edit/<%= book._id %>" class="btn btn-sm btn-warning">
